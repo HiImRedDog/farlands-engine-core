@@ -1,9 +1,9 @@
-short_name = "godot"
-name = "Godot Engine"
+short_name = "farlands"
+name = "Farlands Engine"
 major = 4
 minor = 5
 patch = 3
 status = "rc"
 module_config = ""
-website = "https://godotengine.org"
+website = "https://farlands.world"
 docs = "4.5"
