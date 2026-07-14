@@ -22,6 +22,12 @@ _(what / why / file / re-merge risk)_
 
 _Visual branding (boot splash image, editor icon) deferred — needs Farlands engine art assets; will be a follow-up entry._
 
+### 2. Editor theme default colours — `editor/themes/editor_theme_manager.cpp` + `editor/settings/editor_settings.cpp` (2026-07-13)
+- **What:** Default editor preset accent `Color(0.44,0.73,0.98)` (Godot blue) → `Color(1.0,0.784,0.0)` (**#ffc800**, Farlands gold); default base `Color(0.21,0.24,0.29)` (blue-grey) → `Color(0.15,0.13,0.10)` (warm charcoal). Same two values mirrored as the raw setting defaults in `editor_settings.cpp` so there's no stray Godot blue on any path.
+- **Why no extension path:** these are compile-time defaults for a fresh install's editor theme — nothing rebrands the editor out of the box at runtime. Users can still pick any built-in preset; we only changed what "Default" *is*.
+- **Re-merge risk:** LOW–MED. Upstream occasionally tunes the Default preset; a bump could conflict on these exact lines — trivial to resolve (keep our gold/charcoal). Localised to 3 lines across 2 files.
+- **Brand note:** #ffc800 is the confirmed Farlands yellow (from `farlands-mark-yellow.svg`), superseding the washed-out `#ffcf60` in older portal tokens. Real brand vectors vendored at `farlands/brand/` for the pending splash + icon work.
+
 ## Planned in-tree changes (known unavoidable)
 | Change | Why no extension path | Status |
 |---|---|---|
