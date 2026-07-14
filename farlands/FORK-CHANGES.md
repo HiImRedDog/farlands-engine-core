@@ -28,6 +28,17 @@ _Visual branding (boot splash image, editor icon) deferred — needs Farlands en
 - **Re-merge risk:** LOW–MED. Upstream occasionally tunes the Default preset; a bump could conflict on these exact lines — trivial to resolve (keep our gold/charcoal). Localised to 3 lines across 2 files.
 - **Brand note:** #ffc800 is the confirmed Farlands yellow (from `farlands-mark-yellow.svg`), superseding the washed-out `#ffcf60` in older portal tokens. Real brand vectors vendored at `farlands/brand/` for the pending splash + icon work.
 
+### 3. Editor imagery — Godot logos/icon/splash → Farlands (2026-07-13)
+- **What:**
+  - `editor/icons/Logo.svg` (Project Manager logo) → Farlands full-logo (mark + FARLANDS), gold #ffc800
+  - `editor/icons/TitleBarLogo.svg` (editor title bar) → Farlands mark
+  - `main/app_icon.png` (128×128 window/app icon) → Farlands mark
+  - `main/splash.png` (800×600 boot splash) → Farlands full-logo centered on warm ink
+- **Why no extension path:** built-in engine brand imagery, compiled/embedded — no runtime hook rebrands these out of the box.
+- **Method:** PNGs rasterized by the engine itself (headless `Image.load_svg_from_string`) — no external rasterizer dependency. Verified the render is gold (#ffc800) via pixel sample, not black (thorvg handled the CSS-class fill).
+- **Re-merge risk:** LOW. Upstream rarely touches these beyond its own logo refreshes; a Godot logo update would conflict trivially (keep ours).
+- **Source:** `farlands/brand/` vendored vectors.
+
 ## Planned in-tree changes (known unavoidable)
 | Change | Why no extension path | Status |
 |---|---|---|
